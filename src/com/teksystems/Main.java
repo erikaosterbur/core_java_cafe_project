@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Product coffee = new Product("Coffee", 2.50, "Dark roast");
-        Product espresso = new Product("Espresso", 3.50, "Concentrated form of coffee served in a small, strong shot");
-        Product cappuccino = new Product("Cappuccino", 4.00, "Espresso coffee topped with frothed hot milk");
+        Coffee coffee = new Coffee();
+        Espresso espresso = new Espresso();
+        Cappuccino cappuccino = new Cappuccino();
 
         Scanner input = new Scanner(System.in);
         System.out.println("How many coffees would you like?");
@@ -33,6 +33,8 @@ public class Main {
         double salesTotal = salesSubtotal + salesTax;
 
         System.out.printf("Order Subtotal: %.2f \n Sales Tax: %.4f \n Sales Total: %.2f",salesSubtotal,salesTax,salesTotal);
+
+
 
     }
 }

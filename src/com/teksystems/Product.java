@@ -1,6 +1,6 @@
 package com.teksystems;
 
-public class Product {
+public abstract class Product {
     private String name;
     private double price;
     private String description;
@@ -47,8 +47,5 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public double calculateProductTotal() {
-        double subtotal = this.price * this.quantity;
-        return subtotal;
-    }
+    public abstract double calculateProductTotal();
 }
