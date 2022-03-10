@@ -1,5 +1,7 @@
 package com.teksystems;
 
+import java.util.Scanner;
+
 public class Coffee extends Product {
     private boolean sugar;
     private boolean milk;
@@ -35,5 +37,32 @@ public class Coffee extends Product {
     @Override
     public double calculateProductTotal() {
         return this.getQuantity() * this.getPrice();
+    }
+
+    @Override
+    public void addOptions(Scanner input) {
+        //ask if they want sugar
+        System.out.print("Do you want sugar in your coffee?\n 1: Yes\n 2: No");
+        int userSugar = input.nextInt();
+        //setSugar
+        setSugar(userSugar == 1);
+        //ask if they want milk
+        System.out.print("Do you want milk in your coffee?\n 1: Yes\n 2: No");
+        int userMilk = input.nextInt();
+        //setMilk
+        setMilk(userMilk == 1);
+    }
+
+    @Override
+    public String printOptions(){
+        if(this.milk && this.sugar){
+           return "Sugar: Yes Milk: Yes";
+        } else if (this.milk && !this.sugar){
+            return "Sugar: No Milk: Yes";
+        } else if (this.sugar && !this.milk){
+            return "Sugar: Yes Milk: No";
+        } else {
+            return "Sugar: No Milk: No";
+        }
     }
 }

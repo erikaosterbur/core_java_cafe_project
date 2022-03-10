@@ -1,5 +1,7 @@
 package com.teksystems;
 
+import java.util.Scanner;
+
 public abstract class Product {
     private String name;
     private double price;
@@ -48,4 +50,10 @@ public abstract class Product {
     }
 
     public abstract double calculateProductTotal();
+
+    public abstract void addOptions(Scanner input);
+
+    public abstract String printOptions();
+
+
 }
