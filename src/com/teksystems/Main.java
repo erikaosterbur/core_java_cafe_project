@@ -43,7 +43,7 @@ public class Main {
         ArrayList<Product> shoppingCart = new ArrayList<>();
 
 
-            loop:
+        loop:
         while(true){
             System.out.println("Please select from the following menu:\n 1. Coffee\n 2. Cappuccino\n 3. Espresso\n 4. Check Out");
             switch(input.nextInt()){
@@ -69,11 +69,16 @@ public class Main {
                     break;
 
                 case 4:
-                    shoppingCart.forEach(sc -> {
+                    double runningTotal = 0;
+                    for(Product sc : shoppingCart){
                         System.out.printf("Item: %s Price: %.2f Quantity: %d Subtotal: %.2f\n %s\n", sc.getName(), sc.getPrice(), sc.getQuantity(), sc.calculateProductTotal(), sc.printOptions());
-                    });
-
-
+                        runningTotal += sc.calculateProductTotal();
+                    }
+                    System.out.printf("Purchase Subtotal: %.2f\n", runningTotal);
+                    double salesTax = runningTotal * .0685;
+                    double grandTotal = runningTotal + salesTax;
+                    System.out.printf("Sales Tax: %.2f\n", salesTax);
+                    System.out.printf("Purchase Total: %.2f\n", grandTotal);
                     break loop;
 
                 default:
